@@ -12,20 +12,26 @@ ChartJS.register(
 );
 type BarComponentProps = React.ComponentProps<typeof Bar>;
 
+export type CharData = {
+  label: string;
+  data: number;
+};
+
 export interface ChartProps extends Pick<BarComponentProps, 'options'> {
-  xLabels: number[];
-  data: number[];
+  data: CharData[];
 }
 
-const Chart: React.FC<ChartProps> = ({ data, options,xLabels }) => {
+const Chart: React.FC<ChartProps> = ({ data:charData, options, }) => {
   const barData = useMemo<BarComponentProps['data']>(() => {
+    const labels = charData.map(({ label }) => label);
+    const data = charData.map(({ data }) => data);
     return {
-      labels:xLabels,
+      labels,
       datasets: [{data, label:'Random Data', backgroundColor: 'rgba(0, 104, 239, 0.2)', borderColor: 'rgb(112, 99, 255)', borderWidth: 1}],
     }
-  }, [xLabels,data]);
+  }, [charData]);
 
-    return <Bar data={barData} options={options}  />;
+  return <Bar data={barData} options={options} />
 };
 
 export default Chart;
