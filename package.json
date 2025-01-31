@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@types/faker": "^6.6.11"
+    "@types/faker": "^6.6.11",
+    "prettier": "^3.4.2"
   }
 }

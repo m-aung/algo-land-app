@@ -1,0 +1,11 @@
+.button-container {
+  display: flex;
+  justify-items: center;
+  align-items: space-between;
+  gap: 10px;
+}
+.data-controller-panel{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
